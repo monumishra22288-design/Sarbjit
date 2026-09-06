@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sarbjit Mishra | Full Stack Web Developer</title>
+
+    <meta name="description"
+          content="Sarbjit Mishra - Computer Science Student and Full Stack Web Developer from Biratnagar, Nepal.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: #06172f;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(3, 18, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4da3ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 22px;
+            font-size: 15px;
+            transition: 0.2s;
+        }
+
+        nav a:hover { color: #4da3ff; }
+
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 7%;
+            background:
+                radial-gradient(circle at 80% 20%, #123e78 0%, transparent 35%),
+                #06172f;
+        }
+
+        .hero-container {
+            max-width: 1100px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 30px;
+            background: rgba(77,163,255,0.15);
+            color: #4da3ff;
+            border: 1px solid #2869aa;
+            margin-bottom: 18px;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 15px;
+        }
+
+        .blue { color: #4da3ff; }
+
+        .hero h2 {
+            font-size: 25px;
+            color: #dbeaff;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            color: #b9c7d9;
+            max-width: 600px;
+            font-size: 17px;
+        }
+
+        .profile-box {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0d3565, #4da3ff);
+            padding: 7px;
+            box-shadow: 0 0 50px rgba(77,163,255,0.35);
+            overflow: hidden;
+        }
+
+        .profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+            display: block;
+            border: 4px solid #06172f;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: 0.25s;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .instagram { background: #d62976; }
+        .whatsapp { background: #128c7e; }
+        .phone { background: #1769aa; }
+
+        section { padding: 80px 7%; }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .section-title span { color: #4da3ff; }
+
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            color: #c5d2e3;
+            font-size: 18px;
+        }
+
+        .info-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #0b2345;
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid rgba(77,163,255,0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: #4da3ff;
+        }
+
+        .card h3 {
+            color: #4da3ff;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .card p { color: #c5d2e3; }
+
+        .skills {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            background: #0b2345;
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 5px solid #4da3ff;
+            transition: 0.3s;
+        }
+
+        .skill:hover { transform: translateY(-5px); }
+
+        .skill h3 { margin-bottom: 8px; }
+        .skill p { color: #aebfd4; }
+
+        .experience {
+            max-width: 900px;
+            margin: auto;
+            background: #0b2345;
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(77,163,255,0.2);
+        }
+
+        .experience h3 {
+            color: #4da3ff;
+            font-size: 28px;
+        }
+
+        .experience p {
+            color: #c5d2e3;
+            margin-top: 10px;
+        }
+
+        .contact {
+            text-align: center;
+            background: #041126;
+        }
+
+        .contact p {
+            color: #bdcadb;
+            margin-bottom: 20px;
+        }
+
+        .contact-buttons { justify-content: center; }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #020b18;
+            color: #8798ad;
+            font-size: 14px;
+        }
+
+        @media (max-width: 800px) {
+            nav { padding: 14px 5%; }
+            nav .links { display: none; }
+
+            .hero { padding: 60px 6%; }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p { margin: auto; }
+            .buttons { justify-content: center; }
+            .profile-box { order: -1; }
+
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            .info-grid,
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            section { padding: 60px 6%; }
+
+            .section-title { font-size: 32px; }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">SONU.DEV</div>
+
+    <div class="links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-container">
+
+        <div>
+            <span class="tag">COMPUTER SCIENCE STUDENT</span>
+
+            <h1>
+                Sarbjit<br>
+                <span class="blue">Mishra</span>
+            </h1>
+
+            <h2>Full Stack Web Developer</h2>
+
+            <p>
+                Building responsive, fast and modern web applications
+                with clean code and smart functionality.
+            </p>
+
+            <div class="buttons">
+                <a class="btn instagram"
+                   href="https://www.instagram.com/sonu1122334/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📸 Instagram
+                </a>
+
+                <a class="btn whatsapp"
+                   href="https://wa.me/9779713592035"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    💬 WhatsApp
+                </a>
+
+                <a class="btn phone"
+                   href="tel:+9779713592035">
+                    📞 Call Me
+                </a>
+            </div>
+        </div>
+
+        <div class="profile-box">
+            <div class="profile">
+                <img src="sonu.jpg" alt="Sarbjit Mishra">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">
+        About <span>Me</span>
+    </h2>
+
+    <p class="about">
+        I am Sarbjit Mishra, a Computer Science Student at Merryland
+        College, Biratnagar, Nepal. I am passionate about coding,
+        problem solving and creating impactful digital solutions.
+        I work with modern web technologies and focus on building
+        responsive and user-friendly websites.
+    </p>
+</section>
+
+<section>
+    <h2 class="section-title">
+        My <span>Profile</span>
+    </h2>
+
+    <div class="info-grid">
+        <div class="card">
+            <h3>🎓 Education</h3>
+            <p>Merryland College<br>Biratnagar, Nepal</p>
+        </div>
+
+        <div class="card">
+            <h3>💻 Profession</h3>
+            <p>Computer Science Student<br>Full Stack Web Developer</p>
+        </div>
+
+        <div class="card">
+            <h3>⏱️ Experience</h3>
+            <p>2+ Years Experience</p>
+        </div>
+
+        <div class="card">
+            <h3>📍 Location</h3>
+            <p>Biratnagar, Nepal</p>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <h2 class="section-title">
+        My <span>Expertise</span>
+    </h2>
+
+    <div class="skills">
+        <div class="skill">
+            <h3>HTML</h3>
+            <p>2+ Years Experience</p>
+        </div>
+
+        <div class="skill">
+            <h3>JavaScript</h3>
+            <p>2+ Years Experience</p>
+        </div>
+
+        <div class="skill">
+            <h3>Frontend Development</h3>
+            <p>Creating responsive and modern user interfaces.</p>
+        </div>
+
+        <div class="skill">
+            <h3>Backend Development</h3>
+            <p>Building functional web applications and server-side functionality.</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2 class="section-title">
+        My <span>Experience</span>
+    </h2>
+
+    <div class="experience">
+        <h3>Full Stack Web Developer</h3>
+
+        <p><strong>2+ Years Experience</strong></p>
+
+        <p>
+            Experienced in HTML, JavaScript, frontend development
+            and backend development. Passionate about coding,
+            problem solving and creating modern digital solutions.
+        </p>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="section-title">
+        Let's <span>Connect</span>
+    </h2>
+
+    <p>
+        Available for opportunities, projects and collaborations.
+    </p>
+
+    <div class="buttons contact-buttons">
+        <a class="btn instagram"
+           href="https://www.instagram.com/sonu1122334/"
+           target="_blank"
+           rel="noopener noreferrer">
+            📸 @sonu1122334
+        </a>
+
+        <a class="btn whatsapp"
+           href="https://wa.me/9779713592035"
+           target="_blank"
+           rel="noopener noreferrer">
+            💬 WhatsApp
+        </a>
+
+        <a class="btn phone"
+           href="tel:+9779713592035">
+            📞 9713592035
+        </a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Sarbjit Mishra. All Rights Reserved.
+    <br>
+    Built with HTML, CSS & JavaScript.
+</footer>
+
+</body>
+</html>
